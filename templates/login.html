@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <br>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            💡{{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form class="form-signin" method="POST" action="/login">
+            <label class="sr-only">Email or Username</label>
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email or Username"
+                required="" autofocus="" />
+            <label class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
+                required="" />
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" /> Remember me
+                </label>
+            </div>
+            <button class="btn btn-primary btn-lg">Login</button>
+            <br />
+            <br />
+            <p>Don't have an account? <a href="{{ url_for('signup')}}">Create one now</a></p>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

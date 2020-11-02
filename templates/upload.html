@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="upload-form form-signin form-group" action="/upload" method="POST" enctype="multipart/form-data">
+    <label for="file" class="sr-only">Upload Your File</label>
+    <input type="file" name="file" class="form-control" />
+    <br>
+    <button name="submit" type=" submit" class="btn btn-primary btn-lg">Upload</button>
+    <br />
+    <br />
+    <p><a href="{{ url_for('files')}}">Go Back to Files</a></p>
+
+</form>
+{% endblock %}
